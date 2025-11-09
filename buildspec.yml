@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Starting build..."
+  build:
+    commands:
+      - echo "Packaging artifact for CodeDeploy..."
+      - mkdir -p output
+      - cp -r simple-site/* output/
+      - cp appspec.yml output/
+      - cp -r scripts output/
+artifacts:
+  files:
+    - '**/*'
+  base-directory: output
